@@ -4,6 +4,7 @@ const axios = require('axios');
 const app = http.createServer(async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   try {
+    res.setHeader('Access-Control-Allow-Origin', '*');
     const response = await axios.get('https://medium.com/elementarybr/latest?format=json')
     console.log(response.status);
     if (!response.data === 200) throw new Error('medium API did not return status 200')
